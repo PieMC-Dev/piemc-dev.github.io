@@ -1,2 +1,2 @@
-# PieMC-Dev.github.io
-Website
+See the website in action here:
+https://PieMC-Dev.github.io
