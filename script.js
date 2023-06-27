@@ -15,4 +15,16 @@ window.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+  
+  const h2Elements = document.querySelectorAll('h2');
+
+  function addAnimationToH2() {
+    h2Elements.forEach((h2) => {
+      h2.classList.add('animate');
+    });
+  }
+  
+  // Add animation when the page finishes loading
+  window.addEventListener('load', addAnimationToH2);
   
