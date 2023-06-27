@@ -286,6 +286,7 @@ footer {
   color: #fff;
   font-size: 16px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 footer a {
