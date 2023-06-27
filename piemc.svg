@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100pt" height="110pt" viewBox="0 0 100 110" version="1.1">
-<g id="surface2">
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(67.843137%,45.490196%,36.078431%);fill-opacity:1;" d="M 40 0 L 50 0 L 50 10 L 40 10 Z M 40 0 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(67.843137%,45.490196%,36.078431%);fill-opacity:1;" d="M 50 0 L 60 0 L 60 10 L 50 10 Z M 50 0 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(67.843137%,45.490196%,36.078431%);fill-opacity:1;" d="M 60 0 L 70 0 L 70 10 L 60 10 Z M 60 0 "/>
@@ -80,5 +79,4 @@
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(45.490196%,32.941176%,10.980392%);fill-opacity:1;" d="M 10 100 L 20 100 L 20 110 L 10 110 Z M 10 100 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(45.490196%,32.941176%,10.980392%);fill-opacity:1;" d="M 20 100 L 30 100 L 30 110 L 20 110 Z M 20 100 "/>
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(45.490196%,32.941176%,10.980392%);fill-opacity:1;" d="M 30 100 L 40 100 L 40 110 L 30 110 Z M 30 100 "/>
-</g>
 </svg>
