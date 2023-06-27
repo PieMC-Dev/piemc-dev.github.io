@@ -1,118 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  -->
+  <base href="/">
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PieMC</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="poggit_ci">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <title>poggit_ci</title>
+  <link rel="manifest" href="manifest.json">
 </head>
-
 <body>
-  <header>
-    <nav>
-      <div class="container">
-        <a href="#home" class="logo">PieMC</a>
-        <ul class="menu">
-          <li><a href="#getting-started">Getting Started</a></li>
-          <li><a href="#functionality">Functionality</a></li>
-          <li><a href="/plugins">Plugins</a></li>
-          <li><a href="#roadmap">Roadmap</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    var serviceWorkerVersion = '4193636226';
+    var scriptLoaded = false;
+    function loadMainDartJs() {
+      if (scriptLoaded) {
+        return;
+      }
+      scriptLoaded = true;
+      var scriptTag = document.createElement('script');
+      scriptTag.src = 'main.dart.js';
+      scriptTag.type = 'application/javascript';
+      document.body.append(scriptTag);
+    }
 
-  <section id="home">
-    <div class="container">
-      <h1>PieMC</h1>
-      <p>Server software for Minecraft: Bedrock Edition, written in Python. It is currently in the early stages of development. 🚧</p>
-      <a href="#getting-started" class="cta-button">Get Started</a>
-    </div>
-  </section>
+    if ('serviceWorker' in navigator) {
+      // Service workers are supported. Use them.
+      window.addEventListener('load', function () {
+        // Wait for registration to finish before dropping the <script> tag.
+        // Otherwise, the browser will load the script multiple times,
+        // potentially different versions.
+        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+        navigator.serviceWorker.register(serviceWorkerUrl)
+          .then((reg) => {
+            function waitForActivation(serviceWorker) {
+              serviceWorker.addEventListener('statechange', () => {
+                if (serviceWorker.state == 'activated') {
+                  console.log('Installed new service worker.');
+                  loadMainDartJs();
+                }
+              });
+            }
+            if (!reg.active && (reg.installing || reg.waiting)) {
+              // No active web worker and we have installed or are installing
+              // one for the first time. Simply wait for it to activate.
+              waitForActivation(reg.installing ?? reg.waiting);
+            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+              // When the app updates the serviceWorkerVersion changes, so we
+              // need to ask the service worker to update.
+              console.log('New service worker available.');
+              reg.update();
+              waitForActivation(reg.installing);
+            } else {
+              // Existing service worker is still good.
+              console.log('Loading app from service worker.');
+              loadMainDartJs();
+            }
+          });
 
-  <section id="getting-started">
-    <div class="container">
-      <h2>Getting Started</h2>
-      <p>First of all you need to install requirements with:</p>
-      <code>pip install -r requirements.txt</code>
-      <p>To run the server, execute the following command in PieMC directory:</p>
-      <code>python PieMC.py</code>
-    </div>
-  </section>
-
-  <section id="functionality">
-    <div class="container">
-      <h2>Functionality</h2>
-      <ul>
-        <li>✅ Basic protocol</li>
-        <li>✅ MOTD</li>
-        <li>⬜ Game Protocol</li>
-        <li>⬜ Plugins</li>
-        <li>⬜ Permissions</li>
-        <li>⬜ Ability to log in to the server</li>
-        <li>⬜ Commands</li>
-        <li>⬜ World Generation</li>
-        <li>⬜ Mobs</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="roadmap">
-    <div class="container">
-      <h2>PieMC Roadmap 🚀</h2>
-      <div class="roadmap">
-        <div class="phase">
-          <h3>Phase 1: Foundational Development 🛠️</h3>
-          <ul>
-            <li>Basic protocol - Implement the fundamental networking protocol for communication between the server and clients.</li>
-            <li>MOTD - Add support for the Message of the Day (MOTD) to display server information to players.</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <h3>Phase 2: Core Features 🌟</h3>
-          <ul>
-            <li>Game Protocol - Develop the game protocol to handle gameplay mechanics, such as block placement, player movement, and world interactions.</li>
-            <li>Plugins - Create a flexible and extensible plugin system, allowing developers to enhance server functionality with custom features.</li>
-            <li>Permissions - Implement a permissions system to manage user access levels and control their actions on the server.</li>
-            <li>User Authentication - Introduce a secure authentication mechanism to allow players to log in using their Minecraft accounts.</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <h3>Phase 3: Enhanced Gameplay 🎮</h3>
-          <ul>
-            <li>Commands - Design and implement a comprehensive command system for server administration and gameplay customization.</li>
-            <li>World Generation - Develop advanced world generation algorithms to create diverse and immersive game worlds.</li>
-            <li>Mobs - Introduce a variety of mobs with unique behaviors and interactions to enhance the gameplay experience.</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <h3>Phase 4: Performance Optimization ⚡</h3>
-          <ul>
-            <li>Scalability - Optimize the server software to handle a large number of concurrent players and ensure smooth performance.</li>
-            <li>Resource Efficiency - Fine-tune resource usage to minimize server overhead and improve overall efficiency.</li>
-          </ul>
-        </div>
-        <div class="phase">
-          <h3>Phase 5: Community Engagement 🤝</h3>
-          <ul>
-            <li>Documentation and Tutorials - Provide comprehensive documentation and tutorials to help users understand and utilize PieMC effectively.</li>
-            <li>Bug Fixes and Stability - Continuously address reported issues, fix bugs, and ensure a stable and reliable server software.</li>
-            <li>Community Feedback - Listen to the community's feedback, ideas, and suggestions to shape the future direction of PieMC.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2023 PieMC. All rights reserved.</p>
-      <p>This project is licensed under the <a href="https://github.com/PieMC-Dev/PieMC/blob/socket/LICENSE">GPL-3.0 License</a>.<br>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+        // If service worker doesn't succeed in a reasonable amount of time,
+        // fallback to plaint <script> tag.
+        setTimeout(() => {
+          if (!scriptLoaded) {
+            console.warn(
+              'Failed to load app from service worker. Falling back to plain <script> tag.',
+            );
+            loadMainDartJs();
+          }
+        }, 4000);
+      });
+    } else {
+      // Service workers not supported. Just drop the <script> tag.
+      loadMainDartJs();
+    }
+  </script>
 </body>
-
 </html>
