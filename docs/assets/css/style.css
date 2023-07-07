@@ -220,6 +220,10 @@ button {
   margin-left: 240px;
   padding: 20px;
 }
+
+.title {
+  text-decoration: underline;
+}
   
 #sidebar {
     margin-left: 2%;
@@ -309,6 +313,12 @@ button {
     font-size: 24px;
     margin-bottom: 20px;
   }
+
+article h1::after {
+  content: "";
+  display: block;
+  margin-bottom: 20px;
+}
   
   article p {
     margin-bottom: 10px;
