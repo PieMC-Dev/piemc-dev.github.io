@@ -65,3 +65,10 @@ gsap.from(".team_img_wrapper img", {
   delay: 0.8,
   duration: 0.3,
 });
+
+gsap.from(".info-block", {
+  opacity: 0,
+  y: 20,
+  delay: 0.5,
+  duration: 0.3,
+});

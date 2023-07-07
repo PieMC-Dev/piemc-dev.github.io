@@ -446,32 +446,43 @@ button {
   color: #333;
 }
 
-@media (min-width: 768px) {
+@media screen and (max-width: 991px) {
   .info-section {
+    align-items: center;
+    gap: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    }
+    
+    .info-block {
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
+    }
+    
+    .info-block-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    }
+    
+    .info-block-content {
+    text-align: center;
+    }
+    
+    .info-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    }
+    
+    .info-text {
+    font-size: 0.8rem;
+    text-align: center;
+    }
+    }
 
-  .info-block {
-    flex-direction: row;
-  }
-
-  .info-block-image {
-    width: 40%;
-  }
-
-  .info-heading {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .info-text {
-    font-size: 1.125rem;
-  }
-}
-
-@media (min-width: 1280px) {
+@media screen and (min-width: 1040px) {
   .info-section {
     gap: 3rem;
     padding-top: 3rem;
@@ -479,11 +490,11 @@ button {
   }
 
   .info-heading {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
 
   .info-text {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
