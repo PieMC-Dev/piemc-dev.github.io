@@ -432,6 +432,7 @@ article h1::after {
       width: 100%;
       margin-top: 0;
       margin-bottom: 2%;
+      z-index: -1;
     }
     article {
       flex-grow: 1;
@@ -458,4 +459,6 @@ article h1::after {
       margin-bottom: 5px;
     }
   }
+  
+
   
