@@ -14,7 +14,7 @@
  foreach($data as $event){
   if($event->type == 'PushEvent'){
    // Call the buildCheck function
-   buildCheck();
+  $this->buildCheck();
   }
  }
 
