@@ -67,7 +67,7 @@ button {
   justify-content: space-between;
 }
 /* ==== LOGO ==== */
-.logo h2 {
+.logo h1 {
   font-size: 28px;
   color: var(--primary-color);
 }
